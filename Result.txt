@@ -1,0 +1,15 @@
+instance: 0 	m: 10 	n: 200 	ofv: 21129.0 	paretoTime: 0.948463 	classicalTime: 2.05106 
+instance: 1 	m: 10 	n: 200 	ofv: 20531.0 	paretoTime: 1.109001 	classicalTime: 1.206772 
+instance: 2 	m: 10 	n: 200 	ofv: 20567.999999999996 	paretoTime: 0.846735 	classicalTime: 1.703404 
+instance: 3 	m: 10 	n: 300 	ofv: 29017.999999999996 	paretoTime: 3.66118 	classicalTime: 6.068047 
+instance: 4 	m: 10 	n: 300 	ofv: 30229.000000000004 	paretoTime: 3.057908 	classicalTime: 4.280076 
+instance: 5 	m: 10 	n: 300 	ofv: 29550.999999999996 	paretoTime: 1.943793 	classicalTime: 4.706381 
+instance: 6 	m: 20 	n: 300 	ofv: 29056.999999999996 	paretoTime: 11.325791 	classicalTime: 22.683591 
+instance: 7 	m: 20 	n: 300 	ofv: 29106.0 	paretoTime: 37.642342 	classicalTime: 47.206605 
+instance: 8 	m: 20 	n: 300 	ofv: 29429.000000000004 	paretoTime: 22.653495 	classicalTime: 38.256881 
+instance: 9 	m: 10 	n: 400 	ofv: 37016.0 	paretoTime: 4.673619 	classicalTime: 13.754984 
+instance: 10 	m: 10 	n: 400 	ofv: 35672.0 	paretoTime: 2.551686 	classicalTime: 8.464407 
+instance: 11 	m: 10 	n: 400 	ofv: 38432.0 	paretoTime: 9.941788 	classicalTime: 13.689431 
+instance: 12 	m: 20 	n: 400 	ofv: 35928.00000000001 	paretoTime: 56.849744 	classicalTime: 124.148364 
+instance: 13 	m: 20 	n: 400 	ofv: 36670.0 	paretoTime: 102.831131 	classicalTime: 154.26216 
+instance: 14 	m: 20 	n: 400 	ofv: 35177.99999999999 	paretoTime: 51.328332 	classicalTime: 126.364043 
