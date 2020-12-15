@@ -10,6 +10,7 @@ by **T. L. MAGNANTI**, **R. T. WONG**
 
 for a facility location problem as follows
 
+$$
 \begin{align*}
  v = \min_{i = 1}^n \min_{j = 1}^m c_{ij} x_{ij} + \sum_{j = 1}^m d_j y_j
  s.t. \sum_{j = 1}^m x_{ij} \ge 1, \quad \forall i \in \{1, 2, \ldots, n\}
@@ -17,3 +18,4 @@ for a facility location problem as follows
       x_{ij} \ge 0, \quad \forall i \in \{1, 2, \ldots, n\}, j \{1, 2, \ldots, m\}
       y_{j} \in \{0, 1\}, \quad \forall j \in \{1, 2, \ldots, m\}
 \end{align*}
+$$
