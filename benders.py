@@ -3,6 +3,7 @@
 # Article: Accelerating Benders Decomposition: Algorithmic Enhancement and    #
 #          Model Selection Criteria                                           #
 # Authors: T. L. MAGNANTI, R. T. WONG (1981)                                  #
+# Coding:  Lan Peng                                                           #
 ###############################################################################
 
 # This script compares the performance of traditional Benders Decomposition
@@ -16,7 +17,7 @@
 #      y_{j} \in \{0, 1\}, \quad \forall j \in \{1, 2, \ldots, m\}
 #
 # Notice that Gurobi is a god-like software, this script cannot beat gurobi
-# even with even with the Pareto-optimal cuts.
+# even with the Pareto-optimal cuts.
 
 
 import gurobipy as grb
@@ -269,9 +270,6 @@ def dualSubproblem(
 				if (minIndex == None or c[i, j] <= cMin):
 					cMin = c[i, j]
 					minIndex = j
-
-			# print(minIndex)
-
 			# Calculate Li
 			Li = None
 			for j in O:
@@ -279,7 +277,6 @@ def dualSubproblem(
 					Li = c[i, j]
 
 			if (Li == None):
-				# FIXME: Does it mean lower bound for lambda i is the same as upper bound?
 				poLam[i] = cMin
 				for j in O:
 					poPi[i, j] = 0
@@ -300,7 +297,6 @@ def dualSubproblem(
 					s = y[minIndex] - y0[minIndex]
 					for j in T:
 						s += y[j] - y0[j]
-
 					if (s <= 0):
 						# s <= 0, stop, poLam[i] is optimal
 						pass
@@ -337,19 +333,17 @@ def dualSubproblem(
 	sub.optimize()
 	# If bounded, return optimality cut
 	if (sub.status == grb.GRB.status.OPTIMAL):
+		# Enable Pareto Optimality cuts
 		if (paretoFlag):
-			# subLam = {}
-			# for i in range(n):
-			# 	subLam[i] = lam[i].x
 			paretoCut = paretoOptimal()
 			poLam = paretoCut['lam']
 			poPi = paretoCut['pi']
-			# print(poLam, poPi)
 			return {
 				'type': "optimality",
 				'lam': poLam,
 				'pi': poPi
 			}
+		# Unable Pareto Optimality Cuts
 		else:
 			subLam = {}
 			subPi = {}
@@ -358,13 +352,12 @@ def dualSubproblem(
 			for i in range(n):
 				for j in range(m):
 					subPi[i, j] = pi[i, j].x
-			# print(subLam, subPi)
 			return {
 				'type': "optimality",
 				'lam': subLam,
 				'pi': subPi
 			}
-
+	# If unbounded, return feasibility cut
 	elif (sub.status == grb.GRB.status.UNBOUNDED):
 		subLam = {}
 		subPi = {}
