@@ -96,7 +96,7 @@ def readInstance(
 
 def directSolveProblem(
 	instance: "Facility location problem, with n, m, c, d"
-	) -> "Use gurobi to the optimal ofv of the instance without Benders Decomposition":
+	) -> "Use gurobi to find the optimal ofv of the instance without Benders Decomposition":
 	# Read instance ===========================================================
 	n = instance['n']
 	m = instance['m']
@@ -140,7 +140,7 @@ def directSolveProblem(
 def masterProblem(
 	instance: "Facility location problem, with n, m, c, d",
 	paretoFlag: "True if enable Pareto-optimal cuts, False otherwise" = False,
-	) -> "Use traditional Benders Decomposition to solve Facility Location Problem":
+	) -> "Use Benders Decomposition to solve Facility Location Problem":
 	# Read instance ===========================================================
 	n = instance['n']
 	m = instance['m']
@@ -157,7 +157,7 @@ def masterProblem(
 	for j in range(m):
 		y[j] = master.addVar(vtype=grb.GRB.BINARY, obj=d[j])
 
-	# Integer part no constraint ==============================================
+	# Integer part, no constraint =============================================
 	pass
 
 	# Call back to add cuts ===================================================
@@ -331,7 +331,7 @@ def dualSubproblem(
 	sub.setParam('OutputFlag', 0)
 	sub.setParam("InfUnbdInfo", 1)
 	sub.optimize()
-	# If bounded, return optimality cut
+	# If bounded, return Optimality cuts
 	if (sub.status == grb.GRB.status.OPTIMAL):
 		# Enable Pareto Optimality cuts
 		if (paretoFlag):
@@ -357,7 +357,7 @@ def dualSubproblem(
 				'lam': subLam,
 				'pi': subPi
 			}
-	# If unbounded, return feasibility cut
+	# If unbounded, return Feasibility cut
 	elif (sub.status == grb.GRB.status.UNBOUNDED):
 		subLam = {}
 		subPi = {}

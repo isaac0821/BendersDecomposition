@@ -142,3 +142,53 @@ Changed value of parameter lazyConstraints to 1
    Prev: 0  Min: 0  Max: 1  Default: 0
 Changed value of parameter lazyConstraints to 1
    Prev: 0  Min: 0  Max: 1  Default: 0
+
+Gurobi 8.1.0 (win64, Python) logging started 08/14/21 05:35:50
+
+Academic license - for non-commercial use only
+Optimize a model with 3300 rows, 3010 columns and 9000 nonzeros
+Variable types: 3000 continuous, 10 integer (10 binary)
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [5e+01, 3e+03]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [1e+00, 1e+00]
+Presolve time: 0.04s
+Presolved: 3300 rows, 3010 columns, 9000 nonzeros
+Variable types: 3000 continuous, 10 integer (10 binary)
+
+Root relaxation: objective 2.984817e+04, 1332 iterations, 0.03 seconds
+
+    Nodes    |    Current Node    |     Objective Bounds      |     Work
+ Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
+
+     0     0 29848.1667    0    8          - 29848.1667      -     -    0s
+H    0     0                    36104.000000 29848.1667  17.3%     -    0s
+H    0     0                    30180.000000 29848.1667  1.10%     -    0s
+     0     0 29862.3636    0    9 30180.0000 29862.3636  1.05%     -    0s
+     0     0 29872.9444    0    9 30180.0000 29872.9444  1.02%     -    0s
+     0     0 29873.9722    0    9 30180.0000 29873.9722  1.01%     -    0s
+     0     0 29874.2051    0    9 30180.0000 29874.2051  1.01%     -    0s
+     0     0 29878.6832    0    9 30180.0000 29878.6832  1.00%     -    0s
+     0     0 29879.0406    0    9 30180.0000 29879.0406  1.00%     -    0s
+     0     0 29879.1015    0    9 30180.0000 29879.1015  1.00%     -    0s
+     0     0 29879.1406    0    9 30180.0000 29879.1406  1.00%     -    0s
+     0     0 29879.4030    0    9 30180.0000 29879.4030  1.00%     -    0s
+     0     0 29879.4030    0    9 30180.0000 29879.4030  1.00%     -    0s
+     0     2 29879.4030    0    9 30180.0000 29879.4030  1.00%     -    0s
+
+Cutting planes:
+  Gomory: 6
+  MIR: 1
+
+Explored 3 nodes (1816 simplex iterations) in 0.42 seconds
+Thread count was 12 (of 12 available processors)
+
+Solution count 2: 30180 36104 
+
+Optimal solution found (tolerance 1.00e-04)
+Best objective 3.018000000000e+04, best bound 3.018000000000e+04, gap 0.0000%
+Changed value of parameter lazyConstraints to 1
+   Prev: 0  Min: 0  Max: 1  Default: 0
+Changed value of parameter lazyConstraints to 1
+   Prev: 0  Min: 0  Max: 1  Default: 0
